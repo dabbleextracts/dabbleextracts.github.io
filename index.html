@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Tracker</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Inventory Tracker</h1>
+
+        <form id="inventoryForm" class="space-y-4">
+            <!-- Transaction Type -->
+            <div>
+                <label for="transactionType" class="block text-sm font-medium text-gray-700 mb-1">Transaction Type</label>
+                <select id="transactionType" name="transactionType" required
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    <option value="">Select Type</option>
+                    <option value="input">Input (Stock In)</option>
+                    <option value="output">Output (Stock Out)</option>
+                </select>
+            </div>
+
+            <!-- Item Name -->
+            <div>
+                <label for="itemName" class="block text-sm font-medium text-gray-700 mb-1">Item Name</label>
+                  <select id="itemName" name="itemName" required
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    <option value="">Select Type</option>
+                    <option value="Dabble Carts 1000mg">Dabble Carts 1000mg (Case 1000)</option>
+                    <option value="Dabble Carts 500mg">Dabble Carts 500mg (Case 1000)</option>
+                    <option value="Dabble Mylars">Dabble Mylars (Case 1000)</option>
+                    <option value="Dabble Jars">Dabble Jars (Case 200)</option>
+                    <option value="Dabble Lids">Dabble Lids (Case 2000)</option>
+                    <option value="GL Red 1000mg">GL Red 1000mg (Case 1000)</option>
+                    <option value="GL Red 500mg">GL Red 500mg (Case 1000)</option>
+                    <option value="GL Purple 1000mg">GL Purple 1000mg (Case 1000)</option>
+                    <option value="GL Purple 500mg">GL Purple 500mg (Case 1000)</option>
+                    <option value="GL Green 1000mg">GL Green 1000mg (Case 1000)</option>
+                    <option value="GL Green 500mg">GL Green 500mg (Case 1000)</option>
+                    <option value="GL Mylars">GL Mylars (Case 1000)</option>
+                    <option value="LG Box 10x10x10">LG Box 10x10x10 (Bundle 25)</option>
+                    <option value="SM Box 10x9x6">SM Box 10x9x6 (Bundle 25)</option>
+                    <option value="SM White Box">SM White Box (Bundle 25)</option>
+                    <option value="Circle Jar Labels">Circle Jar Labels (Roll 3500)</option>
+                    <option value="Mylar Labels">Mylar Labels (Roll 1900)</option>
+                    <option value="LG Clear Circle Labels">LG Clear Circle Lables (Roll 1400)</option>
+                    <option value="LG White Circle Labels">LG White Circle Lables (Roll 1300)</option>
+                    <option value="Silver Long Labels  0.75" x 4"">Silver Long Labels  0.75" x 4" (Roll 3590)</option>
+                    <option value="Silver Long Labels  0.5" x 5"">Silver Long Labels  0.5" x 5" (Roll 4150)</option>
+                    <option value="XL Nitrile Gloves">XL Nitrile Gloves (Box 100)</option>
+                    <option value="L Nitrile Gloves">L Nitrile Gloves (Box 100)</option>
+                    <option value="M Nitrile Gloves">M Nitrile Gloves (Box 100)</option>
+                    <option value="S Nitrile Gloves">S Nitrile Gloves (Box 100)</option>
+                    <option value="Distilled Water">Distilled Water</option>
+                    <option value="Botanasolv">Botanasolv (Jug 5 Gallon)</option>
+                    <option value="420 Extractor">420 Extractor (Jug 5 Gallon)</option>
+                    <option value="CRC Media">CRC Media (Jug 5 Gallon)</option>
+                    <option value="Propylene Glycol">Propylene Glycol (Jug 5 Gallon)</option>
+                    <option value="Marlotherm">Marlotherm (Pail)</option>
+                    <option value="Toilet Paper">Toilet Paper (Pack 1)</option>
+                    <option value="Kiaro Ink Yellow">Kiaro Ink Yellow</option>
+                    <option value="Kiaro Ink Black">Kiaro Ink Black</option>
+                    <option value="Kiaro Ink Magenta">Kiaro Ink Magenta</option>
+                    <option value="Kiaro Ink Cyans">Kiaro Ink Cyans</option>
+                    <option value="Kiaro Maintenance">Kiaro Maintenance</option>
+                    <option value="Hand Soap">Hand Soap</option>
+                </select>
+            </div>
+
+            <!-- Quantity -->
+            <div>
+                <label for="quantity" class="block text-sm font-medium text-gray-700 mb-1">Quantity</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1" required
+                       class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+
+            <!-- Date -->
+            <div>
+                <label for="transactionDate" class="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                <input type="date" id="transactionDate" name="transactionDate" required
+                       class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+
+            <!-- Name -->
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                <textarea id="name" name="name" rows="1" placeholder=""
+                          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm resize-y"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit"
+                    class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                Record Transaction
+            </button>
+        </form>
+
+        <!-- Message Box for feedback -->
+        <div id="messageBox" class="mt-4 p-3 rounded-md text-sm text-center hidden"></div>
+    </div>
+
+    <script>
+        // Function to display messages
+        function showMessage(message, type) {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.textContent = message;
+            messageBox.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+            if (type === 'success') {
+                messageBox.classList.add('bg-green-100', 'text-green-800');
+            } else if (type === 'error') {
+                messageBox.classList.add('bg-red-100', 'text-red-800');
+            }
+            setTimeout(() => {
+                messageBox.classList.add('hidden');
+            }, 5000); // Hide after 5 seconds
+        }
+
+        // Set today's date as default for the date input
+        document.addEventListener('DOMContentLoaded', () => {
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0'); // Months start at 0!
+            const dd = String(today.getDate()).padStart(2, '0');
+            document.getElementById('transactionDate').value = `${yyyy}-${mm}-${dd}`;
+        });
+
+        // Handle form submission
+        document.getElementById('inventoryForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(this);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+
+            // Example of how you might send data to a Google Apps Script Web App:
+            const googleAppsScriptWebAppLink = 'https://script.google.com/macros/s/AKfycbxUXn1tXfZmeydzziF5WxZFss1_1bnIfIpKPkIFJA_yQcEOGRhdunSaSvTNWVlmWJgX/exec';
+            try {
+                const response = await fetch(googleAppsScriptWebAppLink, {
+                    method: 'POST',
+                    mode: 'no-cors', // Important for Google Apps Script as it often doesn't send CORS headers
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+                // Note: With 'no-cors', you cannot read the response status or body.
+                // You'll rely on the script successfully writing to the sheet.
+                showMessage('Inventory transaction recorded successfully!', 'success');
+                this.reset(); // Clear the form
+                // Reset date to today after successful submission
+                const today = new Date();
+                const yyyy = today.getFullYear();
+                const mm = String(today.getMonth() + 1).padStart(2, '0');
+                const dd = String(today.getDate()).padStart(2, '0');
+                document.getElementById('transactionDate').value = `${yyyy}-${mm}-${dd}`;
+
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                showMessage('Error recording transaction. Please try again.', 'error');
+            }
+        });
+    </script>
+</body>
+</html>
